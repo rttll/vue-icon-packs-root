@@ -1,7 +1,15 @@
 {
-  "name": "root",
+  "name": "vue-icon-packs-root",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Adrian Cousens",
+  "license": "MIT",
   "private": true,
-  "devDependencies": {
-    "lerna": "^4.0.0"
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "icons:build": "yarn workspace vue-icon-packs build",
+    "search:dev": "yarn workspace search develop"
   }
 }

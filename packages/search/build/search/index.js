@@ -1,13 +1,13 @@
 import jetpack from 'fs-jetpack';
 import { parse } from 'svgson';
 import { Low, JSONFile } from 'lowdb';
-import config from '../import.config.js';
+import list from '../../../vue-icon-packs/src/packs.manifest';
 
 const file = 'search.db.json';
 const adapter = new JSONFile(file);
 const db = new Low(adapter);
 
-function getEntries(path, matching = '*.vue') {
+function getInputFiles(path, matching) {
   const paths = jetpack.find(path, {
     matching: matching,
     recursive: false,
@@ -17,7 +17,6 @@ function getEntries(path, matching = '*.vue') {
 
 const schema = (path) => {
   let fileName = path.split('/').pop();
-
   let iconName = fileName.replace('.svg', '');
   const template = {
     id: iconName,
@@ -26,7 +25,7 @@ const schema = (path) => {
   return template;
 };
 
-const getTerms = async (lib, path) => {
+const buildSearchEntry = async (lib, path) => {
   let doc = schema(path);
   let iconNameParts = doc.id
     .replace(/[A-Z]/g, (match, offset) => {
@@ -45,27 +44,27 @@ const getTerms = async (lib, path) => {
   return doc;
 };
 
-async function search(lib, paths) {
-  let col = {
-    id: lib.shortName,
+async function buildSearchEntries(lib, inputFiles) {
+  let entry = {
+    id: lib.id,
     name: lib.name,
     icons: [],
   };
-  for (const path of paths) {
-    col.icons.push(await getTerms(lib, path));
+  for (const file of inputFiles) {
+    entry.icons.push(await buildSearchEntry(lib, file));
   }
-  return col;
+  return entry;
 }
 
-(function() {
+module.exports = function() {
   let actions = [];
 
-  for (const lib of config) {
+  for (const lib of list) {
     console.log(lib.name);
     actions.push(
       new Promise(async (resolve) => {
-        let paths = getEntries(`temp/svg/${lib.shortName}/new`, '*.svg');
-        let col = await search(lib, paths);
+        let inputFiles = getInputFiles(`temp/svg/${lib.id}/new`, '*.svg');
+        let col = await buildSearchEntries(lib, inputFiles);
         resolve(col);
       })
     );
@@ -74,4 +73,4 @@ async function search(lib, paths) {
     db.data = libs;
     db.write();
   });
-})();
+};

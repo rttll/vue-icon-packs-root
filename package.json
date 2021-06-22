@@ -10,6 +10,7 @@
   ],
   "scripts": {
     "icons:build": "yarn workspace vue-icon-packs build",
+    "search:build": "yarn workspace search build:icons",
     "search:dev": "yarn workspace search develop"
   }
 }

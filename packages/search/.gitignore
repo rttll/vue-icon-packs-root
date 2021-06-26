@@ -1,3 +1,8 @@
+# Generated search db
+src/search/db
+src/search/packs.manifest.js
+
+
 *.log
 .cache
 .DS_Store

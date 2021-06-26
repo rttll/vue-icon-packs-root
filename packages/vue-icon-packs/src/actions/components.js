@@ -41,6 +41,7 @@ module.exports = class Component {
       <script> export default { name: '${name}'};</script>
     `;
 
+    jetpack.write(`temp/svg/${this._library.id}/${name + '.svg'}`, svg);
     jetpack.write(`temp/components/${this._library.id}/${name + '.vue'}`, html);
   }
 

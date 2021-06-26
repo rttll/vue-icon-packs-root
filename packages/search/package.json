@@ -5,8 +5,7 @@
     "develop": "gridsome develop",
     "explore": "gridsome explore",
     "build": "gridsome build",
-    "build:icons": "node ./build/icons.js && prettier --write src/components/async/**/*",
-    "build:index": "node --experimental-json-modules src/lib/export/index.js"
+    "build:icons": "node ./build/db.js"
   },
   "dependencies": {
     "@fontsource/recursive": "^4.3.0",

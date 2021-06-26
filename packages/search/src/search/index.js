@@ -1,5 +1,5 @@
 import FlexSearch from 'flexsearch';
-import searchDB from './search.db.json';
+import list from './packs.manifest.js';
 
 let _index = {};
 
@@ -29,7 +29,6 @@ const search = (query, libID) => {
     query: _downcase(query),
   };
   return new Promise((resolve) => {
-    debugger;
     if (!_index[libID]) {
       console.log('no', libID);
       resolve([]);
@@ -40,34 +39,34 @@ const search = (query, libID) => {
 };
 
 const _addDocs = () => {
-  for (let lib of searchDB) {
-    _createIndex(lib.id);
-    let docs = lib.icons
-      .map((obj) => {
-        if (!Array.isArray(obj.terms)) {
-          console.log('no arrya ' + obj);
-          return null;
-        }
-        obj.terms = obj.terms.join(' ');
-        return {
-          ...obj,
-          libID: lib.id,
-          lib: {
-            id: lib.id,
-            name: lib.name,
-          },
-        };
+  let indexes = [];
+  for (let lib of list) {
+    indexes.push(
+      new Promise((resolve) => {
+        _createIndex(lib.id);
+        import(`./db/${lib.id}.json`).then((resp) => {
+          let docs = resp.icons.map((obj) => {
+            obj.terms = obj.terms.join(' ');
+            return {
+              ...obj,
+              libID: lib.id,
+              lib: {
+                id: lib.id,
+                name: lib.name,
+              },
+            };
+          });
+          _index[lib.id].add(docs);
+          resolve();
+        });
       })
-      .filter((obj) => obj);
-    _index[lib.id].add(docs);
+    );
   }
+  return Promise.all(indexes);
 };
 
 const init = () => {
-  return new Promise((resolve) => {
-    _addDocs();
-    resolve();
-  });
+  return _addDocs();
 };
 
 export { init, search };

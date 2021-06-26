@@ -54,11 +54,15 @@ async function buildSearchEntries(lib, inputFiles) {
 }
 
 (function() {
-  console.log('Build search indexes...');
+  console.log('Building search...');
+
+  jetpack.copy(
+    '../vue-icon-packs/src/packs.manifest.js',
+    'src/search/packs.manifest.js'
+  );
+
   let actions = [];
-  let i = 0;
   for (const lib of list) {
-    i++;
     actions.push(
       new Promise(async (resolve) => {
         let inputFiles = getInputFiles(lib.id);

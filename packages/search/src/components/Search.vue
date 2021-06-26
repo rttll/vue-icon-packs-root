@@ -61,11 +61,11 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
-import { init, search } from '~/lib/search';
+import { init, search } from '~/search/index.js';
+import list from '~/search/packs.manifest.js';
 import debounce from 'lodash.debounce';
 import shuffle from 'lodash.shuffle';
 import { equals } from '../util/helpers';
-import config from '../lib/libs';
 // import SearchSolid from 'vue-icon-packs/dist/hi/sfc/SearchSolid.vue';
 import { ChevronDown } from 'vue-icon-packs/bx';
 // import ChevronDown from 'vue-icon-packs/bx/sfc/ChevronDown.vue';
@@ -184,9 +184,9 @@ export default {
       this.sendSearch();
     };
     this.keyupHandler = debounce(handler, 100);
-    this.libs = config.map((lib) => ({
+    this.libs = list.map((lib) => ({
       name: lib.name,
-      id: lib.shortName,
+      id: lib.id,
     }));
 
     if (process.isClient) {

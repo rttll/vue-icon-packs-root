@@ -58,7 +58,7 @@ export default {
     ...mapState(['icon']),
     importKey() {
       return {
-        default: `import { ${this.icon.id} } from 'vue-icons/${this.icon.lib.id}'`,
+        default: `import { ${this.icon.id} } from 'vue-icon-packs/${this.icon.lib.id}'`,
       };
     },
   },

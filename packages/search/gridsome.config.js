@@ -7,7 +7,7 @@
 const merge = require('webpack-merge');
 module.exports = {
   siteName: 'Search',
-  outputDir: 'docs',
+  outputDir: '../../docs',
   // chainWebpack(config) {
   //   console.log(config.plugins);
   // },

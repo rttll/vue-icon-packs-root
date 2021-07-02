@@ -8,13 +8,6 @@ const merge = require('webpack-merge');
 module.exports = {
   siteName: 'Search',
   outputDir: '../../docs',
-  // chainWebpack(config) {
-  //   console.log(config.plugins);
-  // },
-  // configureWebpack(config) {
-  //   console.log(config);
-  //   config.plugins.store.delete('prefetch-app');
-  //   return config;
-  // },
+  pathPrefix: '/docs',
   plugins: [{ use: 'gridsome-plugin-tailwindcss' }],
 };

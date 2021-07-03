@@ -9,7 +9,8 @@
     "build": "node ./src/index.js && yarn pretty",
     "pretty": "prettier --write dist/**/index.esm.js",
     "clean": "node src/util/clean.js",
-    "flow:make": "babel src/ -d lib"
+    "flow:make": "babel src/ -d lib",
+    "prepublish": "node ./src/index.js && yarn pretty"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.3",

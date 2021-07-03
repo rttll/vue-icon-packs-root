@@ -117,12 +117,12 @@ module.exports = async function() {
     // Make package entry files
     makeEntries(iconPack.name);
     // Copy .vue files to /dist/sfc
-    jetpack.copy(
-      `temp/components/${iconPack.name}`,
-      `dist/${iconPack.name}/sfc`,
-      {
-        overwrite: true,
-      }
-    );
+    // jetpack.copy(
+    //   `temp/components/${iconPack.name}`,
+    //   `dist/${iconPack.name}/sfc`,
+    //   {
+    //     overwrite: true,
+    //   }
+    // );
   }
 };

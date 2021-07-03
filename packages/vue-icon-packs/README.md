@@ -2,18 +2,19 @@
 
 Vue SVG icon components.
 
+Including icons from:  
 `Hero Icons`,
 `Remix Icon`, `Octicons`, `Ionic Icons`, `Box Icons`, `Tabler Icons`
 
+Example usage:
+
 ```js
 // Import
-import { Arrow } from 'vue-icon-packs/hi';
+import { ArrowRight } from 'vue-icon-packs/oc';
 
 // and go
-<Arrow />;
+<ArrowRight />;
 ```
-
-## Search icons: [search.com](https://search.com)
 
 # Install
 
@@ -27,9 +28,11 @@ $ npm i vue-icon-packs
 
 # Usage
 
-## Search icons: [search.com](https://search.com)
+Search all icons here:
 
-_Also includes import instructions._
+## [search-vue-icon-packs.vercel.app](https://search-vue-icon-packs.vercel.app)
+
+_Also includes useage instructions._
 
 ### **Import**
 
@@ -37,8 +40,8 @@ Each icon pack is exported from its own subdir.
 Use named imports:
 
 ```javascript
-import { Arrow } from 'vue-icon-packs/hi';
-import { FooBar } from 'vue-icon-packs/bx';
+import { ArrowRight } from 'vue-icon-packs/oc';
+import { LocationSharp, Add } from 'vue-icon-packs/io';
 ```
 
 ### **Component tag**
@@ -47,10 +50,10 @@ Pascal and kebop style supported:
 
 ```html
 <!-- pascal case -->
-<Arrow />
+<ArrowRight />
 
 <!-- kebob -->
-<foo-bar />
+<arrow-right />
 ```
 
 ## Style
@@ -62,16 +65,16 @@ Beyond that, you can style it like any other component.
 ```html
 <!-- Red fill -->
 <span style="color: red">
-  <ArrowSolid />
+  <ArrowUpFill />
 </span>
 
-<!-- Also red fill -->
-<ArrowSolid style="color: red" />
+<!-- Red stroke -->
+<ArrowRightLine style="color: red" />
 
-<!-- Center-align component to siblings, and make it smaller -->
+<!-- Align and shrink -->
 <h1 class="icon-heading">
   <span>Hello world!</span>
-  <Arrow class="icon" />
+  <ArrowRight class="icon" />
 </h1>
 
 <style>
@@ -93,7 +96,8 @@ Icon names are equalized within each pack, but not between packs.
 In the case of name collisions, just alias the component on import:
 
 ```javascript
-import { Abacus } from 'vue-icon-packs/hi';
+import { Server } from 'vue-icon-packs/oc';
+
 // Use `as` syntax to alias component name
-import { Abacus as AbacusBX } from 'vue-icon-packs/bx';
+import { Server as Server2 } from 'vue-icon-packs/ti';
 ```

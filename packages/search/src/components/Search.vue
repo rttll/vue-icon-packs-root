@@ -20,7 +20,7 @@
               class="flex items-center p-4 space-x-2 text-sm text-gray-600 cursor-pointer "
             >
               <span>{{ activeLib ? activeLib.name : filter.text }}</span>
-              <ChevronDown />
+              <!-- <ChevronDown /> -->
             </a>
             <ul
               v-if="filter.show"
@@ -67,7 +67,7 @@ import debounce from 'lodash.debounce';
 import shuffle from 'lodash.shuffle';
 import { equals } from '../util/helpers';
 // import SearchSolid from 'vue-icon-packs/dist/hi/sfc/SearchSolid.vue';
-import { ChevronDown } from 'vue-icon-packs/bx';
+// import { ChevronDown } from 'vue-icon-packs/bx';
 // import ChevronDown from 'vue-icon-packs/bx/sfc/ChevronDown.vue';
 
 import IconList from '~/components/IconList';
@@ -78,7 +78,7 @@ export default {
     ActiveIcon,
     IconList,
     // SearchSolid,
-    ChevronDown,
+    // ChevronDown,
   },
   data() {
     return {

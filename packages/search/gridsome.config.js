@@ -7,7 +7,5 @@
 const merge = require('webpack-merge');
 module.exports = {
   siteName: 'Search',
-  outputDir: '../../docs',
-  pathPrefix: '/vue-icon-packs-root/docs',
   plugins: [{ use: 'gridsome-plugin-tailwindcss' }],
 };

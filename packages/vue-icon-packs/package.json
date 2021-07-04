@@ -4,6 +4,17 @@
   "license": "MIT",
   "main": "dist",
   "author": "Adrian Cousens",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rttll/vue-icon-packs-root.git",
+    "directory": "packages/vue-icon-packs"
+  },
+  "homepage": "https://github.com/rttll/vue-icon-packs-root/tree/main/packages/vue-icon-packs#vue-icon-packs",
+  "keywords": [
+    "vue",
+    "svg",
+    "icons"
+  ],
   "sideEffects": false,
   "scripts": {
     "build": "node ./src/index.js && yarn pretty",

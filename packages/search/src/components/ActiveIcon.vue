@@ -1,50 +1,38 @@
 <template>
-  <div
-    class="fixed z-10 p-4 border border-gray-200 rounded-sm"
-    style="width: 30%"
-  >
-    <div class="relative">
-      <a
-        href="#"
-        class="absolute top-0 right-0 p-2 text-3xl text-gray-400 transform translate-x-4 -translate-y-4 cursor-pointer "
-        @click.prevent="setIcon()"
-      >
-        <!-- <Plus class="transform rotate-45" /> -->
-      </a>
-      <div
-        class="flex flex-col items-center justify-center p-12 space-y-8 text-4xl rounded-sm "
-      >
-        <Icon :icon="icon" :sidebar="true" />
+  <aside class="fixed z-10 p-4 overflow-y-auto" style="width: 30%">
+    <div class="border border-gray-200 rounded shadow-sm">
+      <div class="relative ">
+        <div class="py-20 text-4xl rounded-sm w-ful">
+          <Icon :icon="icon" :sidebar="true" />
+          <span class=""> </span>
+        </div>
+        <h2 class="absolute top-0 right-0 p-1 text-xs rounded-tr bg-gray-50 ">
+          {{ icon.id }}
+        </h2>
       </div>
-      <h2 class="text-xl text-center">{{ icon.id }}</h2>
-      <div class="py-4 my-2 space-y-6 text-sm bg-yellow-50">
-        <code class="block">
-          <span class="block px-4">// Import</span>
-          <input
-            type="text"
-            class="block w-full p-4 py-2 bg-transparent outline-none"
-            onClick="this.setSelectionRange(0, this.value.length)"
-            :value="importKey.default"
-          />
-        </code>
-        <code class="block">
-          <span class="block px-4"> &lt;!-- Tag -- &gt; </span>
-          <input
-            type="text"
-            class="block w-full p-4 py-2 bg-transparent outline-none"
-            onClick="this.setSelectionRange(0, this.value.length)"
-            :value="`<${icon.id} />`"
-          />
-        </code>
+      <div class="text-sm border-t border-gray-200 bg-gray-50">
+        <Input :text="importKey.default" />
+        <Input :text="`&lt;${icon.id} /&gt;`" />
       </div>
-      <h3 class="text-center">{{ icon.lib.name }}</h3>
     </div>
-  </div>
+    <div class="flex justify-end mt-4 item-center">
+      <div>
+        <h3 class="flex-grow text-lg">{{ pack.name }}</h3>
+        <div class="flex space-x-2 bottom-1">
+          <a class="block text-xs text-blue-400" :href="pack.site">Site</a>
+          <a class="block text-xs text-blue-400" :href="pack.license"
+            >License</a
+          >
+        </div>
+      </div>
+    </div>
+  </aside>
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex';
 // import Plus from 'vue-icons/dist/oc/sfc/Plus.vue';
+import Input from './Input';
 import Icon from './Icon';
 export default {
   name: 'ActiveIcon',
@@ -53,13 +41,16 @@ export default {
       svg: '',
     };
   },
-  components: { Icon },
+  components: { Icon, Input },
   computed: {
-    ...mapState(['icon']),
+    ...mapState(['icon', 'packs']),
     importKey() {
       return {
         default: `import { ${this.icon.id} } from 'vue-icon-packs/${this.icon.lib.id}'`,
       };
+    },
+    pack() {
+      return this.packs.filter((p) => p.id === this.icon.lib.id)[0];
     },
   },
   methods: {

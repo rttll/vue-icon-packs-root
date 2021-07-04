@@ -7,11 +7,15 @@
 </template>
 
 <script>
+import list from '../search/packs.manifest';
 import Search from '../components/Search.vue';
 export default {
   metaInfo: {
-    title: 'Hello, world!',
+    title: 'Vue Icon Packs',
   },
   components: { Search },
+  created() {
+    this.$store.dispatch('setPacks', { packs: list });
+  },
 };
 </script>

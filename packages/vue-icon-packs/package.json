@@ -10,7 +10,7 @@
     "pretty": "prettier --write dist/**/index.esm.js",
     "clean": "node src/util/clean.js",
     "flow:make": "babel src/ -d lib",
-    "prepublish": "node ./src/index.js && yarn pretty"
+    "prepublishOnly": "node ./src/index.js && yarn pretty"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.3",
@@ -20,15 +20,14 @@
     "@rollup/plugin-commonjs": "^11.1.0",
     "@rollup/plugin-virtual": "^2.0.3",
     "@tabler/icons": "https://github.com/tabler/tabler-icons",
-    "async": "^3.2.0",
     "boxicons": "https://github.com/atisawd/boxicons.git",
     "cli-progress": "^3.9.0",
     "flow-bin": "^0.152.0",
-    "font-awesome": "https://github.com/FortAwesome/Font-Awesome.git",
     "fs-jetpack": "^4.1.0",
     "heroicons": "https://github.com/tailwindlabs/heroicons.git",
     "ionicons": "https://github.com/ionic-team/ionicons.git",
     "jsdom": "^16.6.0",
+    "lowdb": "^2.1.0",
     "remixicon": "https://github.com/Remix-Design/RemixIcon",
     "rollup": "^1.17.0",
     "rollup-plugin-vue": "^5.0.1",
@@ -37,8 +36,5 @@
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
   },
-  "dependencies": {
-    "lowdb": "^2.1.0",
-    "node-fetch": "^2.6.1"
-  }
+  "dependencies": {}
 }

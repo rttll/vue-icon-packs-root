@@ -58,34 +58,23 @@ Pascal and kebop style supported:
 
 ## Style
 
-Components inherit size from the parent, as well as stroke and fill colors where applicable.
+Components inherit size from the parent, as well as stroke and fill colors (where applicable).
 
-Beyond that, you can style it like any other component.
+So you can style directly, or have it inherit.
 
 ```html
-<!-- Red fill -->
+<!-- Red fill (inherited)-->
 <span style="color: red">
   <ArrowUpFill />
 </span>
 
-<!-- Red stroke -->
+<!-- Red stroke (applied directly)-->
 <ArrowRightLine style="color: red" />
 
-<!-- Align and shrink -->
-<h1 class="icon-heading">
-  <span>Hello world!</span>
-  <ArrowRight class="icon" />
+<!-- A big icon -->
+<h1 style="font-size:12rem">
+  <LeftArrow />
 </h1>
-
-<style>
-  .icon-heading {
-    display: flex;
-    align-items: center;
-  }
-  .icon-heading .icon {
-    font-size: 80%;
-  }
-</style>
 ```
 
 ## Usage notes

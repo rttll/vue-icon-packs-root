@@ -1,3 +1,14 @@
+# icon sources
+sources
+
+# output dirs
+temp
+svg
+lib
+search.db.json
+
+#Include dist dirs
+
 !dist
 
 !bx 

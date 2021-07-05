@@ -36,6 +36,7 @@
     "flow-bin": "^0.152.0",
     "fs-jetpack": "^4.1.0",
     "heroicons": "https://github.com/tailwindlabs/heroicons.git",
+    "iconoir": "https://github.com/rttll/iconoir.git",
     "ionicons": "https://github.com/ionic-team/ionicons.git",
     "jsdom": "^16.6.0",
     "lowdb": "^2.1.0",

@@ -3,8 +3,7 @@
 Vue SVG icon components.
 
 Including icons from:  
-`Hero Icons`,
-`Remix Icon`, `Octicons`, `Ionic Icons`, `Box Icons`, `Tabler Icons`
+`Hero Icons`, `Remix Icon`, `Octicons`, `Ionic Icons`, `Box Icons`, `Tabler Icons`, `Iconoir`
 
 Example usage:
 
@@ -90,3 +89,15 @@ import { Server } from 'vue-icon-packs/oc';
 // Use `as` syntax to alias component name
 import { Server as Server2 } from 'vue-icon-packs/ti';
 ```
+
+## Packs Info
+
+| Name         | Site                                   | License                                                                  |
+| ------------ | -------------------------------------- | ------------------------------------------------------------------------ |
+| Hero Icons   | [site](https://heroicons.com/)         | [license](https://github.com/tailwindlabs/heroicons/blob/master/LICENSE) |
+| Remix Icon   | [site](https://remixicon.com/)         | [license](https://github.com/Remix-Design/RemixIcon/blob/master/License) |
+| Octicons     | [site](https://primer.style/octicons/) | [license](https://github.com/primer/octicons/blob/main/LICENSE)          |
+| Ionic Icons  | [site](https://ionic.io/ionicons)      | [license](https://github.com/ionic-team/ionicons/blob/master/LICENSE)    |
+| Box Icons    | [site](https://boxicons.com/)          | [license](https://github.com/atisawd/boxicons)                           |
+| Tabler Icons | [site](https://tabler-icons.io/)       | [license](https://github.com/tabler/tabler-icons/blob/master/LICENSE)    |
+| Iconoir      | [site](https://iconoir.com/)           | [license](https://github.com/lucaburgio/iconoir/blob/master/LICENSE)     |

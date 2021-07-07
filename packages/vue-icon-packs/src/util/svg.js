@@ -6,11 +6,12 @@ module.exports = (path) => {
   let str = jetpack.read(path);
   const frag = JSDOM.fragment(str);
   const svg = frag.firstChild;
+  let out, original;
   try {
     svg.setAttribute('height', '1em');
     svg.setAttribute('width', '1em');
     svg.removeAttribute('class');
-    // original = svg.outerHTML;
+    original = svg.outerHTML;
     let stroke = svg.getAttribute('stroke');
     let fill = svg.getAttribute('fill');
     let shouldSetFill = fill && fill !== 'currentColor' && fill !== 'none';
@@ -48,7 +49,6 @@ module.exports = (path) => {
     // SVG was not optimized for web probably
     return false;
   }
-  let html = svg.outerHTML;
-
-  return html;
+  out = svg.outerHTML;
+  return { svg: out, original };
 };

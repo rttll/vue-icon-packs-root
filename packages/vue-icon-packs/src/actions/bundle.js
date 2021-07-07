@@ -40,7 +40,7 @@ async function bundle(id, inputOptions, outputOptions) {
       return;
     }
   } catch (error) {
-    console.log('foo', id);
+    console.log('Error bundling for pack ', id);
     console.log(error);
   }
 }

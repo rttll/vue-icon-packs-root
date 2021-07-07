@@ -1,8 +1,12 @@
 const jetpack = require('fs-jetpack');
-const config = require('../import.config');
+const list = require('../packs.manifest');
 const jsdom = require('jsdom');
 
 const { JSDOM } = jsdom;
+
+/**
+ * Builds page of original and new svg's for side-by-side comparison
+ */
 
 function getEntries(path) {
   const paths = jetpack.find(path, {
@@ -32,12 +36,14 @@ const page = (html) => {
   `;
 };
 
-module.exports = function() {
+function make() {
+  console.log('Building...');
   let pageHtml = '';
-  for (let library of config) {
+  for (let library of list) {
+    console.log(library.name);
     let html = '';
 
-    let title = config.filter((obj) => obj.id === library.id)[0].name;
+    let title = list.filter((obj) => obj.id === library.id)[0].name;
     html += `<h2>${title}</h2>`;
 
     let original = getEntries(`temp/svg/${library.id}/original`);
@@ -70,4 +76,6 @@ module.exports = function() {
     pageHtml += html;
   }
   jetpack.write(`svg/index.html`, page(pageHtml));
-};
+}
+
+make();

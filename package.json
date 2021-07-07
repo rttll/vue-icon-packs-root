@@ -9,7 +9,9 @@
     "packages/*"
   ],
   "scripts": {
-    "icons:build": "yarn workspace vue-icon-packs build",
+    "packs:build": "yarn workspace vue-icon-packs build",
+    "packs:svg": "yarn workspace vue-icon-packs build:svg",
+    "packs:review": "yarn workspace vue-icon-packs review",
     "search:build": "yarn workspace search build",
     "search:build:icons": "yarn workspace search build:icons",
     "search:dev": "yarn workspace search develop"

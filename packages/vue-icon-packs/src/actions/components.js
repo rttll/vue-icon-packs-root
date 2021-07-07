@@ -4,9 +4,18 @@ const reserved = require('../util/reserved');
 const string = require('../util/string');
 const SVG = require('../util/svg');
 
+/**
+ *
+ * Generates vue SFC from input svg
+ * Can also export new raw svg
+ * @param {String} process.env.OUT (pass via command line)
+ * default is SFC
+ */
+
 module.exports = class Component {
   constructor(library) {
     this._library = library;
+    this._outputFiletype = process.env.OUT || 'sfc';
     this._paths = jetpack.find(library.path, {
       matching: '*.svg',
       recursive: true,
@@ -15,8 +24,9 @@ module.exports = class Component {
 
   init() {
     // reset
-    jetpack.remove(`temp/components/${this._library.id}`);
-    // jetpack.remove(`temp/svg/${this._library.id}`);
+    if (this._outputFiletype === 'sfc')
+      jetpack.remove(`temp/components/${this._library.id}`);
+    else jetpack.remove(`temp/svg/${this._library.id}`);
 
     if (this._library.excludeFile) {
       this._paths = this._paths.filter((str) => {
@@ -27,22 +37,33 @@ module.exports = class Component {
     }
 
     for (let path of this._paths) {
-      this._makeComponent(path);
+      let svgData = SVG(path);
+      if (!svgData) continue;
+      this._saveFile(path, svgData);
     }
   }
 
-  _makeComponent(path) {
-    const svg = SVG(path);
-    if (!svg) return false;
-
+  _saveFile(path, svgData) {
     const name = this._newIconName(path);
-    const html = `
-      <template>${svg}</template>
-      <script> export default { name: '${name}'};</script>
-    `;
-
-    jetpack.write(`temp/components/${this._library.id}/${name + '.vue'}`, html);
-    // jetpack.write(`temp/svg/${this._library.id}/${name + '.svg'}`, svg);
+    if (this._outputFiletype === 'sfc') {
+      let template = `
+        <template>${svgData.svg}</template>
+        <script> export default { name: '${name}'};</script>
+      `;
+      jetpack.write(
+        `temp/components/${this._library.id}/${name}.vue`,
+        template
+      );
+    } else {
+      jetpack.write(
+        `temp/svg/${this._library.id}/original/${name}.svg`,
+        svgData.original
+      );
+      jetpack.write(
+        `temp/svg/${this._library.id}/new/${name}.svg`,
+        svgData.svg
+      );
+    }
   }
 
   _newIconName(path) {

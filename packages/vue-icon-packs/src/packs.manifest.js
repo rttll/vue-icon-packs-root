@@ -50,4 +50,12 @@ module.exports = [
     license: 'https://github.com/tabler/tabler-icons/blob/master/LICENSE',
     path: '../../node_modules/@tabler/icons/icons',
   },
+  {
+    id: 'in',
+    name: 'Iconoir',
+    site: 'https://iconoir.com/',
+    source: 'https://github.com/lucaburgio/iconoir.git',
+    license: 'https://github.com/lucaburgio/iconoir/blob/master/LICENSE',
+    path: '../../node_modules/iconoir/icons',
+  },
 ];

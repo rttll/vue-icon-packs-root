@@ -5,7 +5,7 @@ import { Low, JSONFile } from 'lowdb';
 import list from '../../vue-icon-packs/src/packs.manifest.js';
 
 function getInputFiles(libId) {
-  const paths = jetpack.find(`../vue-icon-packs/temp/svg/${libId}`, {
+  const paths = jetpack.find(`../vue-icon-packs/temp/svg/${libId}/new`, {
     matching: '*.svg',
     recursive: false,
   });

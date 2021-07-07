@@ -21,5 +21,6 @@ const make = (lib) => {
       make(lib);
     }
   }
+  if (process.env.NO_BUNDLE) return;
   await bundle();
 })();

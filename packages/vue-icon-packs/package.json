@@ -18,6 +18,8 @@
   "sideEffects": false,
   "scripts": {
     "build": "node ./src/index.js && yarn pretty",
+    "build:svg": "OUT=svg NO_BUNDLE=true node ./src/index.js",
+    "review": "node ./src/svgReview.js",
     "pretty": "prettier --write dist/**/index.esm.js",
     "clean": "node src/util/clean.js",
     "flow:make": "babel src/ -d lib",

@@ -10,8 +10,8 @@ module.exports = (path) => {
   try {
     svg.setAttribute('height', '1em');
     svg.setAttribute('width', '1em');
-    original = svg.outerHTML;
     svg.removeAttribute('class');
+    original = svg.outerHTML;
     let stroke = svg.getAttribute('stroke');
     let fill = svg.getAttribute('fill');
     let shouldSetFill = fill && fill !== 'currentColor' && fill !== 'none';

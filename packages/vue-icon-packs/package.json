@@ -1,6 +1,6 @@
 {
   "name": "vue-icon-packs",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "license": "MIT",
   "main": "dist",
   "author": "Adrian Cousens",
@@ -19,7 +19,7 @@
   "scripts": {
     "build": "node ./src/index.js && yarn pretty",
     "build:svg": "OUT=svg NO_BUNDLE=true node ./src/index.js",
-    "review": "node ./src/svgReview.js",
+    "review": "node ./src/actions/svgReview.js",
     "pretty": "prettier --write dist/**/index.esm.js",
     "clean": "node src/util/clean.js",
     "flow:make": "babel src/ -d lib",
@@ -45,6 +45,7 @@
     "remixicon": "https://github.com/Remix-Design/RemixIcon",
     "rollup": "^1.17.0",
     "rollup-plugin-vue": "^5.0.1",
+    "svgo": "^2.3.1",
     "svgson": "^5.2.1",
     "to-words": "^2.3.2",
     "vue": "^2.6.10",

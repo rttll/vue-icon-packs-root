@@ -1,9 +1,34 @@
 const jetpack = require('fs-jetpack');
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
+const { optimize } = require('svgo');
+
+const optimized = (path) => {
+  let str = jetpack.read(path);
+  const result = optimize(str, {
+    path: path,
+    multipass: true,
+    plugins: [
+      'removeXMLNS',
+      'removeDoctype',
+      'removeXMLProcInst',
+      'removeComments',
+      'removeMetadata',
+      'prefixIds',
+      'cleanupIDs',
+      'collapseGroups',
+      'removeTitle',
+      'removeEmptyText',
+      'removeEmptyContainers',
+      'removeHiddenElems',
+      'cleanupEnableBackground',
+    ]
+  })
+  return result.data
+}
 
 module.exports = (path) => {
-  let str = jetpack.read(path);
+  let str = optimized(path)
   const frag = JSDOM.fragment(str);
   const svg = frag.firstChild;
   let out, original;
@@ -44,6 +69,7 @@ module.exports = (path) => {
       }
     }
   } catch (error) {
+    debugger
     // TODO optimize it
     console.log('could not get svg ', path, error.message);
     // SVG was not optimized for web probably

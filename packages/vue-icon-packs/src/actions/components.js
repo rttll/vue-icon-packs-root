@@ -1,5 +1,4 @@
 const jetpack = require('fs-jetpack');
-
 const reserved = require('../util/reserved');
 const string = require('../util/string');
 const SVG = require('../util/svg');
@@ -39,6 +38,7 @@ module.exports = class Component {
     for (let path of this._paths) {
       let svgData = SVG(path);
       if (!svgData) continue;
+
       this._saveFile(path, svgData);
     }
   }

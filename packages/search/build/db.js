@@ -58,7 +58,7 @@ async function buildSearchEntries(lib, inputFiles) {
 
   jetpack.copy(
     '../vue-icon-packs/src/packs.manifest.js',
-    'src/search/packs.manifest.js'
+    'src/search/packs.manifest.js', {overwrite: true}
   );
 
   let actions = [];

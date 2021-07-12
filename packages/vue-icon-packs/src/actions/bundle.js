@@ -8,7 +8,6 @@ const makeEntries = require('./entries');
 /**
  * bundle.js
  * Bundles all the .vue files into esm format.
- * Also copies .vue files into /dist
  * and calls entries.js
  */
 

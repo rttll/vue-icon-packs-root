@@ -15,10 +15,12 @@ module.exports = class Component {
   constructor(library) {
     this._library = library;
     this._outputFiletype = process.env.OUT || 'sfc';
-    this._paths = jetpack.find(library.path, {
-      matching: '*.svg',
-      recursive: true,
-    });
+    this._paths = jetpack.cwd('../../')
+      .find(`node_modules/${library.path}`, {
+        matching: '*.svg',
+        recursive: true,
+      })
+      .map(path => `../../${path}`)
   }
 
   init() {

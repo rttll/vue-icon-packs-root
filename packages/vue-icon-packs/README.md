@@ -27,15 +27,14 @@ $ npm i vue-icon-packs
 
 # Usage
 
-Search all icons here:
+Search all icons here (_Also includes useage instructions._)
 
 ## [search-vue-icon-packs.vercel.app](https://search-vue-icon-packs.vercel.app)
 
-_Also includes useage instructions._
 
 ### **Import**
 
-Each icon pack is exported from its own subdir.  
+Each icon pack is exported from its own subdirectory.  
 Use named imports:
 
 ```javascript

@@ -12,8 +12,17 @@
   "homepage": "https://github.com/rttll/vue-icon-packs-root/tree/main/packages/vue-icon-packs#vue-icon-packs",
   "keywords": [
     "vue",
+    "vuejs",
     "svg",
-    "icons"
+    "icons",
+    "icon components",
+    "Hero Icons",
+    "Remix Icon",
+    "Octicons",
+    "Ionic Icons",
+    "Box Icons",
+    "Tabler Icons",
+    "Iconoir"
   ],
   "sideEffects": false,
   "scripts": {

@@ -19,13 +19,14 @@ function getEntries(path) {
 function makeExportDir(name) {
   let contents = `{
   "module": "../dist/${name}/index.esm.js",
+  "main": "../dist/${name}/index.esm.js",
   "sideEffects": false
 }
 `;
   jetpack.write(`${name}/package.json`, contents);
 }
 
-module.exports = function(id) {
+module.exports = function (id) {
   let imports = [],
     names = [];
 

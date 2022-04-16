@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/icon/[lib].js": {
+      "includeFiles": "_files/**"
+    }
+  }
+}

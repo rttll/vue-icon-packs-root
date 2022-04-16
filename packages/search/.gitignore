@@ -1,6 +1,7 @@
 # Generated search db
 src/search/db
 src/search/packs.manifest.js
+api/icon/_files
 
 
 *.log

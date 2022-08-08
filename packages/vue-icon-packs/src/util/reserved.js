@@ -1,6 +1,6 @@
 // https://github.com/vuejs/vue/blob/0603ff695d2f41286239298210113cbe2b209e28/src/platforms/web/util/element.js
 // https://github.com/vuejs/vue/blob/dev/LICENSE
-const isHTMLTag = function(name) {
+const isHTMLTag = function (name) {
   let list =
     'html,body,base,head,link,meta,style,title,' +
     'address,article,aside,footer,header,h1,h2,h3,h4,h5,h6,hgroup,nav,section,' +
@@ -12,14 +12,14 @@ const isHTMLTag = function(name) {
     'button,datalist,fieldset,form,input,label,legend,meter,optgroup,option,' +
     'output,progress,select,textarea,' +
     'details,dialog,menu,menuitem,summary,' +
-    'content,element,shadow,template,blockquote,iframe,tfoot';
+    'content,element,shadow,tmplate,blockquote,iframe,tfoot';
   let lowerName = name.replace(/[A-Z]/g, (match) => {
     return match.toLowerCase();
   });
   return list.split(',').indexOf(lowerName) > -1;
 };
 
-const isSVG = function(name) {
+const isSVG = function (name) {
   let list =
     'svg,animate,circle,clippath,cursor,defs,desc,ellipse,filter,font-face,' +
     'foreignobject,g,glyph,image,line,marker,mask,missing-glyph,path,pattern,' +

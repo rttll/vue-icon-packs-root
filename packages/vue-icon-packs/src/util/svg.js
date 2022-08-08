@@ -22,21 +22,19 @@ const optimized = (path) => {
       'removeEmptyContainers',
       'removeHiddenElems',
       'cleanupEnableBackground',
-    ]
-  })
-  return result.data
-}
+    ],
+  });
+  return result.data;
+};
 
-module.exports = (path) => {
-  let str = optimized(path)
+const process = (path) => {
+  let str = optimized(path);
   const frag = JSDOM.fragment(str);
   const svg = frag.firstChild;
-  let out, original;
   try {
     svg.setAttribute('height', '1em');
     svg.setAttribute('width', '1em');
     svg.removeAttribute('class');
-    original = svg.outerHTML;
     let stroke = svg.getAttribute('stroke');
     let fill = svg.getAttribute('fill');
     let shouldSetFill = fill && fill !== 'currentColor' && fill !== 'none';
@@ -69,12 +67,13 @@ module.exports = (path) => {
       }
     }
   } catch (error) {
-    debugger
+    debugger;
     // TODO optimize it
     console.log('could not get svg ', path, error.message);
     // SVG was not optimized for web probably
     return false;
   }
-  out = svg.outerHTML;
-  return { svg: out, original };
+  return svg.outerHTML;
 };
+
+exports.process = process;

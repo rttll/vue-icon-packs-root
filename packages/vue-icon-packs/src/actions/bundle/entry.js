@@ -16,26 +16,16 @@ function getEntries(path) {
   return paths;
 }
 
-function makeExportDir(name) {
-  let contents = `{
-  "module": "../dist/${name}/index.esm.js",
-  "main": "../dist/${name}/index.esm.js",
-  "sideEffects": false
-}
-`;
-  jetpack.write(`${name}/package.json`, contents);
-}
-
 module.exports = function (id) {
   let imports = [],
     names = [];
 
-  let paths = getEntries(`temp/components/${id}`);
+  let paths = getEntries(`tmp/components/${id}`);
 
   for (const path of paths) {
     let fileName = path.split('/').pop();
     let iconName = fileName.replace('.vue', '');
-    let importPath = `./components/esm/${fileName.replace('.vue', '.esm.js')}`;
+    let importPath = `../components/${id}/${fileName}`;
     imports.push(`import ${iconName} from '${importPath}' `);
     names.push(iconName);
   }
@@ -44,6 +34,5 @@ module.exports = function (id) {
     ${imports.join(';')}
     export { ${names.join(', ')} }
   `;
-  jetpack.write(`dist/${id}/index.esm.js`, base);
-  makeExportDir(id);
+  jetpack.write(`tmp/entries/${id}.js`, base);
 };

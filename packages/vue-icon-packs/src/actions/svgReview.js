@@ -46,8 +46,8 @@ function make() {
     let title = list.filter((obj) => obj.id === library.id)[0].name;
     html += `<h2>${title}</h2>`;
 
-    let original = getEntries(`temp/svg/${library.id}/original`);
-    let newPaths = getEntries(`temp/svg/${library.id}/new`);
+    let original = getEntries(`tmp/svg/${library.id}/original`);
+    let newPaths = getEntries(`tmp/svg/${library.id}/new`);
 
     html += `<div style="
       display:flex; 

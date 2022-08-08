@@ -6,10 +6,10 @@ const config = require('../packs.manifest');
  * Deletes all the generated/dist files
  */
 
-(function() {
+(function () {
   for (let lib of config) {
     jetpack.remove(`./${lib.id}`);
   }
-  jetpack.remove(`./temp`);
+  jetpack.remove(`./tmp`);
   jetpack.remove(`./dist`);
 })();

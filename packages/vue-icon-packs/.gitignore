@@ -2,7 +2,7 @@
 sources
 
 # output dirs
-temp
+tmp
 dist
 svg
 lib

@@ -49,4 +49,34 @@ const intToWords = (str) => {
   });
 };
 
-export { isReserved, toPascalCase, intToWords };
+function rename(path, names, stripFilename) {
+  let [dir, name] = path
+    .split('/')
+    .slice(-2)
+    .map((str) => str.replace('.svg', ''));
+
+  // Fix icon variants in different dirs w/ the same filename
+  // e.g. /solid/name => name-solid ... /outline/name => name-outline
+  // TODO: add default name setting so only one gets appende
+  let same = names.filter((n) => n === name);
+  if (same.length > 1) {
+    name += '-' + dir;
+  }
+
+  // Apply any regex from settings.
+  // This has to go before toWords and pascal
+  if (stripFilename) {
+    name = name.replace(stripFilename, '');
+  }
+
+  name = intToWords(name);
+  name = toPascalCase(name).replace(/-/g, '').replace(/\s/g, '');
+
+  // name is a reserved html/svg word. e.g. Font
+  if (isReserved(name)) {
+    name += 'Icon';
+  }
+  return name;
+}
+
+export { rename };

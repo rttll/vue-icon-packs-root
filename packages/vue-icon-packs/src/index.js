@@ -1,14 +1,11 @@
-const manifest = require('./packs.manifest.js');
-const bundle = require('./actions/bundle');
-const { make } = require('./actions/components');
+import manifest from './manifest.js';
+import bundle from './actions/bundle/index.js';
+import { make } from './actions/component/index.js';
 
 (async function () {
   console.log('Generating components...');
 
-  let packs = manifest;
-  // packs = packs.filter((p) => p.id === 'hi');
-
-  for (let lib of packs) {
+  for (let lib of manifest) {
     make(lib);
   }
 

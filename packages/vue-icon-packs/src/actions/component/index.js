@@ -1,7 +1,6 @@
-const jetpack = require('fs-jetpack');
-const reserved = require('../util/reserved');
-const string = require('../util/string');
-const { process } = require('../util/svg');
+import jetpack from 'fs-jetpack';
+import { isReserved, toPascalCase, intToWords } from './name.js';
+import { process } from './svg.js';
 
 const config = {};
 
@@ -36,17 +35,18 @@ function _newIconName(path) {
     name = name.replace(config.library.stripFilename, '');
   }
 
-  name = string.intToWords(name);
-  name = string.toPascalCase(name).replace(/-/g, '').replace(/\s/g, '');
+  name = intToWords(name);
+  name = toPascalCase(name).replace(/-/g, '').replace(/\s/g, '');
 
   // name is a reserved html/svg word. e.g. Font
-  if (reserved(name)) {
+  if (isReserved(name)) {
     name += 'Icon';
   }
   return name;
 }
 
 const make = (library) => {
+  console.log(library.name);
   config.library = library;
   config.sources = jetpack
     .cwd('../../')
@@ -75,4 +75,4 @@ const make = (library) => {
   }
 };
 
-exports.make = make;
+export { make };

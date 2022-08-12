@@ -1,7 +1,6 @@
-const jetpack = require('fs-jetpack');
-const jsdom = require('jsdom');
-const { JSDOM } = jsdom;
-const { optimize } = require('svgo');
+import jetpack from 'fs-jetpack';
+import { JSDOM } from 'jsdom';
+import { optimize } from 'svgo';
 
 const optimized = (path) => {
   let str = jetpack.read(path);
@@ -76,4 +75,4 @@ const process = (path) => {
   return svg.outerHTML;
 };
 
-exports.process = process;
+export { process };

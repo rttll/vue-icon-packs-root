@@ -1,11 +1,9 @@
-const jetpack = require('fs-jetpack');
-const resolve = require('path').resolve;
-const vue = require('@vitejs/plugin-vue');
-const build = require('vite').build;
-
-const entry = require('./entry');
-
-// const { progress } = require('./progress');
+import jetpack from 'fs-jetpack';
+import { resolve } from 'path';
+import vue from '@vitejs/plugin-vue';
+import { build } from 'vite';
+import manifest from '../../manifest.js';
+import entry from './entry.js';
 
 /**
  * bundle.js
@@ -13,33 +11,30 @@ const entry = require('./entry');
  * and calls entries.js
  */
 
-// const bars = {};
-
-/**
- *
- * @param {Object} iconPack
- ** @param {Array} iconPack.children
- ** @param {String} iconPack.name
- * @param {Object} config
- ** @param {String} config.format
- ** @param {String} config.suffix
- ** @param {String} config.name
- *
- */
-
-// const __dir = fileURLToPath(new URL('.', import.meta.url));
 const __dir = jetpack.cwd();
 
-const bundle = async (entry) => {
+const move = (id) => {
+  const src = `./dist/${id}/dist`;
+  const tree = jetpack.inspectTree(resolve(__dir, src));
+
+  for (const file of tree.children) {
+    jetpack.move(`${src}/${file.name}`, `./dist/${id}/${file.name}`, {
+      overwrite: true,
+    });
+  }
+  jetpack.remove(src);
+};
+
+const bundle = async (id) => {
   await build({
     // Exports empty objects unless root is set
-    root: resolve(__dir, `./dist/${entry}`),
+    root: resolve(__dir, `./dist/${id}`),
     plugins: [vue()],
     build: {
       lib: {
-        entry: resolve(__dir, `tmp/entries/${entry}.js`),
-        name: `${entry}`,
-        fileName: `${entry}`,
+        entry: resolve(__dir, `tmp/entries/${id}.js`),
+        name: `${id}`,
+        fileName: `${id}`,
       },
       rollupOptions: {
         external: ['vue'],
@@ -53,21 +48,12 @@ const bundle = async (entry) => {
   });
 };
 
-module.exports = async function () {
+export default async function () {
   console.log('Bundling...');
-  const tree = jetpack.inspectTree('tmp/components').children;
 
-  let packs = tree;
-
-  /**
-   * @val {Object} iconPack
-   * e.g. {name: 'hi', type: 'dir', children: Array}
-   * @val {Array} iconPack.children
-   * e.g. [{name: 'Abacus.vue', type: 'file'}]
-   */
-
-  for (let iconPack of packs) {
-    entry(iconPack.name);
-    await bundle(iconPack.name);
+  for (let lib of manifest) {
+    entry(lib.id);
+    await bundle(lib.id);
+    move(lib.id);
   }
-};
+}

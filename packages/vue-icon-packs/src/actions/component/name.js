@@ -1,6 +1,8 @@
+import { ToWords } from 'to-words';
+
 // https://github.com/vuejs/vue/blob/0603ff695d2f41286239298210113cbe2b209e28/src/platforms/web/util/element.js
 // https://github.com/vuejs/vue/blob/dev/LICENSE
-const isHTMLTag = function (name) {
+const _isHTMLTag = function (name) {
   let list =
     'html,body,base,head,link,meta,style,title,' +
     'address,article,aside,footer,header,h1,h2,h3,h4,h5,h6,hgroup,nav,section,' +
@@ -19,7 +21,7 @@ const isHTMLTag = function (name) {
   return list.split(',').indexOf(lowerName) > -1;
 };
 
-const isSVG = function (name) {
+const _isSVG = function (name) {
   let list =
     'svg,animate,circle,clippath,cursor,defs,desc,ellipse,filter,font-face,' +
     'foreignobject,g,glyph,image,line,marker,mask,missing-glyph,path,pattern,' +
@@ -30,6 +32,21 @@ const isSVG = function (name) {
   return list.split(',').indexOf(lowerName) > -1;
 };
 
-module.exports = (name) => {
-  return isSVG(name) || isHTMLTag(name);
+const isReserved = (name) => {
+  return _isSVG(name) || _isHTMLTag(name);
 };
+
+const toPascalCase = (str) => {
+  return str
+    .replace(/^[a-z]|/, (match) => match.toUpperCase())
+    .replace(/(?<=-)./g, (match) => match.toUpperCase());
+};
+
+const intToWords = (str) => {
+  const toWords = new ToWords();
+  return str.replace(/^[0-9]+/, (match) => {
+    return toWords.convert(match).replace(/\s/g, '');
+  });
+};
+
+export { isReserved, toPascalCase, intToWords };

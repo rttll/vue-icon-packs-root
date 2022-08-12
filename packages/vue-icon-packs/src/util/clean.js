@@ -1,6 +1,6 @@
 const jetpack = require('fs-jetpack');
 
-const config = require('../packs.manifest');
+const config = require('../manifest');
 
 /**
  * Deletes all the generated/dist files

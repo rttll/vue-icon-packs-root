@@ -1,13 +1,16 @@
-// import list from '../packs.manifest';
-const list = require('../packs.manifest');
+// Logs icons data for the readme.
+// copy/paste from console into readme.
+
+// import list from '../manifest';
+const list = require('../../manifest');
 
 // for list at top of readme
 let names = list.map((obj) => `\`${obj.name}\``);
 console.log(names.join(', '));
 
 // for keywords in package.json
-for (const {name} of list ) {
-  console.log(`"${name}",`)
+for (const { name } of list) {
+  console.log(`"${name}",`);
 }
 
 // for table in readme

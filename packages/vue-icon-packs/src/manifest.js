@@ -1,4 +1,4 @@
-module.exports = [
+const manifest = [
   {
     id: 'hi',
     name: 'Hero Icons',
@@ -54,3 +54,5 @@ module.exports = [
     path: 'iconoir/icons',
   },
 ];
+
+export default manifest;

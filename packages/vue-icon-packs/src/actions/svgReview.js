@@ -1,5 +1,5 @@
 const jetpack = require('fs-jetpack');
-const list = require('../packs.manifest');
+const list = require('../manifest');
 const jsdom = require('jsdom');
 
 const { JSDOM } = jsdom;

@@ -1,12 +1,4 @@
-const jetpack = require('fs-jetpack');
-
-/**
- * entries.js
- * Makes all package entry files for each package (e.g. index.esm.js)
- * and adds them to dist/{packID}/index.esm.js
- *
- * Also makes all the /{packID} export dirs
- */
+import jetpack from 'fs-jetpack';
 
 function getEntries(path) {
   const paths = jetpack.find(path, {
@@ -16,7 +8,16 @@ function getEntries(path) {
   return paths;
 }
 
-module.exports = function (id) {
+const makeDist = (id) => {
+  const template = `{
+    "module": "../dist/${id}/${id}.js",
+    "main": "../dist/${id}/${id}.umd.js",
+    "sideEffects": false
+  }`;
+  jetpack.write(`${id}/package.json`, template);
+};
+
+export default function (id) {
   let imports = [],
     names = [];
 
@@ -35,4 +36,6 @@ module.exports = function (id) {
     export { ${names.join(', ')} }
   `;
   jetpack.write(`tmp/entries/${id}.js`, base);
-};
+
+  makeDist(id);
+}

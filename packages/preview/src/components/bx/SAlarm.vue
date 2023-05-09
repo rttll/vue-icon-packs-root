@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M12,4c-4.878,0-9,4.122-9,9s4.122,9,9,9c4.879,0,9-4.122,9-9S16.879,4,12,4z M17,14h-4h-2v-2V8h2v4h4V14z"></path><path transform="rotate(-135.093 19.494 4.5)" d="M17.37 3.5H21.62V5.5H17.37z"></path><path transform="rotate(44.919 4.495 4.5)" d="M3.495 2.382H5.495V6.617000000000001H3.495z"></path></svg></template>
+      <script> export default { name: 'SAlarm'};</script>
+    

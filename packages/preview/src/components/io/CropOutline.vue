@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" viewBox="0 0 512 512" fill="currentColor"><path d="M144,48V320a48,48,0,0,0,48,48H464" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></path><path d="M368,304V192a48,48,0,0,0-48-48H208" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></path><line x1="368" y1="368" x2="368" y2="464" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></line><line x1="144" y1="144" x2="48" y2="144" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></line></svg></template>
+      <script> export default { name: 'CropOutline'};</script>
+    

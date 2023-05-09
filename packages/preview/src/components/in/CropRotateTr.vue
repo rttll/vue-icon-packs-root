@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" stroke-width="1.5" viewBox="0 0 24 24" fill="none"><path d="M18 12V8C18 5.79086 16.2091 4 14 4H13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20.5 9.5L18 12L15.5 9.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 20L12 12C12 11.4477 11.5523 11 11 11L3 11" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5 9L5 17C5 17.5523 5.44772 18 6 18L14 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg></template>
+      <script> export default { name: 'CropRotateTr'};</script>
+    

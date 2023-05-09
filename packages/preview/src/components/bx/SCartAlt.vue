@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M21,4H5H4H2v2h2h0.3l3.521,9.683C8.106,16.471,8.862,17,9.7,17H18v-2H9.7l-0.728-2H18c0.4,0,0.762-0.238,0.919-0.606l3-7 c0.133-0.309,0.101-0.663-0.084-0.944C21.649,4.169,21.336,4,21,4z"></path><circle cx="10.5" cy="19.5" r="1.5"></circle><circle cx="16.5" cy="19.5" r="1.5"></circle></svg></template>
+      <script> export default { name: 'SCartAlt'};</script>
+    

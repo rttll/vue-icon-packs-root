@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M19,2H5C3.897,2,3,2.897,3,4v12c0,1.103,0.897,2,2,2h3.5l3.5,4l3.5-4H19c1.103,0,2-0.897,2-2V4C21,2.897,20.103,2,19,2z M9,12c-1.104,0-2-0.896-2-2s0.896-2,2-2s2,0.896,2,2S10.104,12,9,12z M15,12c-1.104,0-2-0.896-2-2s0.896-2,2-2s2,0.896,2,2	S16.104,12,15,12z"></path></svg></template>
+      <script> export default { name: 'SMessageAltDots'};</script>
+    

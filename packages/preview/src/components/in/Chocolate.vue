@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" stroke-width="1.5" viewBox="0 0 24 24" fill="none"><path d="M19 6.5C16 6.5 14.5 6 14.5 3L5 3L5 21L19 21L19 6.5Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M19 15L5 15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5 9L19 9" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 21L12 3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg></template>
+      <script> export default { name: 'Chocolate'};</script>
+    

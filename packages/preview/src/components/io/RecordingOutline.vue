@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" viewBox="0 0 512 512" fill="currentColor"><circle cx="128" cy="256" r="96" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></circle><circle cx="384" cy="256" r="96" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></circle><line x1="128" y1="352" x2="384" y2="352" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></line></svg></template>
+      <script> export default { name: 'RecordingOutline'};</script>
+    

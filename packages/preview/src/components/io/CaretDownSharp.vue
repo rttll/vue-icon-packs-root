@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" viewBox="0 0 512 512" fill="currentColor"><polygon points="64 144 256 368 448 144 64 144"></polygon></svg></template>
+      <script> export default { name: 'CaretDownSharp'};</script>
+    

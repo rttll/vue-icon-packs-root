@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" viewBox="0 0 512 512" fill="currentColor"><rect x="48" y="96" width="416" height="320" rx="56" ry="56" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></rect><line x1="48" y1="192" x2="464" y2="192" style="fill: none; stroke: currentColor; stroke-linejoin: round; stroke-width: 60px;"></line><rect x="128" y="300" width="48" height="20" style="fill: none; stroke: currentColor; stroke-linejoin: round; stroke-width: 60px;"></rect></svg></template>
+      <script> export default { name: 'CardOutline'};</script>
+    

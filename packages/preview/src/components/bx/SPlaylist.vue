@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M13 16.493C13 18.427 14.573 20 16.507 20s3.507-1.573 3.507-3.507c0-.177-.027-.347-.053-.517H20V6h2V4h-3c-.553 0-1 .448-1 1v8.333c-.455-.216-.957-.346-1.493-.346C14.573 12.986 13 14.56 13 16.493zM2 5H16V7H2z"></path><path d="M2 9H16V11H2zM2 13H11V15H2zM2 17H11V19H2z"></path></svg></template>
+      <script> export default { name: 'SPlaylist'};</script>
+    

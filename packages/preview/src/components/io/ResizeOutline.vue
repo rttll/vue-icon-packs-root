@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" viewBox="0 0 512 512" fill="currentColor"><polyline points="304 96 416 96 416 208" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></polyline><line x1="405.77" y1="106.2" x2="111.98" y2="400.02" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></line><polyline points="208 416 96 416 96 304" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></polyline></svg></template>
+      <script> export default { name: 'ResizeOutline'};</script>
+    

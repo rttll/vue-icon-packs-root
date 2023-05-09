@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" stroke-width="1.5" viewBox="0 0 24 24" fill="none"><path d="M19 13.5L15.5 17L12 13.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15.5 17V11C15.5 8.79086 13.7091 7 11.5 7H4.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg></template>
+      <script> export default { name: 'LongArrowRightDown'};</script>
+    

@@ -30,9 +30,9 @@
     "build": "node ./src/index.js",
     "build:svg": "OUT=svg NO_BUNDLE=true node ./src/index.js",
     "review": "node ./src/actions/svgReview.js",
-    "pretty": "prettier --write dist/**/index.esm.js",
+    "pretty": "prettier --write dist/**/*.js",
     "clean": "node src/util/clean.js",
-    "prepublishOnly": "node ./src/index.js && yarn pretty"
+    "prepublishOnly": "node ./src/index.js"
   },
   "devDependencies": {
     "@tabler/icons": "https://github.com/tabler/tabler-icons",

@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" stroke-width="1.5" viewBox="0 0 24 24" fill="none"><path d="M14 10L2 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M10 14H2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6 18H2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M18 6L2 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M19 10V20M19 20L22 17M19 20L16 17" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg></template>
+      <script> export default { name: 'SortDown'};</script>
+    

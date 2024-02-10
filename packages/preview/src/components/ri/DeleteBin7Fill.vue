@@ -1,0 +1,4 @@
+
+      <template><svg viewBox="0 0 24 24" height="1em" width="1em" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"></path><path d="M7 6V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5zm2-2v2h6V4H9z"></path></svg></template>
+      <script> export default { name: 'DeleteBin7Fill'};</script>
+    

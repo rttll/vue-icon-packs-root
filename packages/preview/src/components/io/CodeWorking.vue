@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" viewBox="0 0 512 512" fill="currentColor"><circle cx="256" cy="256" r="26" style="stroke: currentColor; stroke-miterlimit: 10; stroke-width: 10px;"></circle><circle cx="346" cy="256" r="26" style="stroke: currentColor; stroke-miterlimit: 10; stroke-width: 10px;"></circle><circle cx="166" cy="256" r="26" style="stroke: currentColor; stroke-miterlimit: 10; stroke-width: 10px;"></circle><polyline points="160 368 32 256 160 144" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 42px;"></polyline><polyline points="352 368 480 256 352 144" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 42px;"></polyline></svg></template>
+      <script> export default { name: 'CodeWorking'};</script>
+    

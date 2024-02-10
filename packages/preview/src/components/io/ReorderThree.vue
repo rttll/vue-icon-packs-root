@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" viewBox="0 0 512 512" fill="currentColor"><line x1="102" y1="256" x2="410" y2="256" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 44px;"></line><line x1="102" y1="176" x2="410" y2="176" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 44px;"></line><line x1="102" y1="336" x2="410" y2="336" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 44px;"></line></svg></template>
+      <script> export default { name: 'ReorderThree'};</script>
+    

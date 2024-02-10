@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M4,22h12v-2H4V8H2v12C2,21.103,2.897,22,4,22z"></path><path d="M20,2H8C6.897,2,6,2.897,6,4v12c0,1.103,0.897,2,2,2h12c1.103,0,2-0.897,2-2V4C22,2.897,21.103,2,20,2z M18,11h-3v3h-2v-3 h-3V9h3V6h2v3h3V11z"></path></svg></template>
+      <script> export default { name: 'SAddToQueue'};</script>
+    

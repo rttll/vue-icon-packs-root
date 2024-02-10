@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" viewBox="0 0 512 512" fill="currentColor"><polyline points="268 112 412 256 268 400" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 48px;"></polyline><line x1="392" y1="256" x2="100" y2="256" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 48px;"></line></svg></template>
+      <script> export default { name: 'ArrowForward'};</script>
+    

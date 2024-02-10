@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" stroke-width="1.5" viewBox="0 0 24 24" fill="none"><path d="M7 4L7 5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M7 9L7 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M17 12V4M17 4L20 7M17 4L14 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 16L20 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 22.01L20.01 21.9989" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M7 14V20M7 20L10 17M7 20L4 17" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg></template>
+      <script> export default { name: 'DataTransferWarning'};</script>
+    

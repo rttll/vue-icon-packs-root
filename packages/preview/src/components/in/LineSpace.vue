@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" stroke-width="1.5" viewBox="0 0 24 24" fill="none"><path d="M11 7H20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M11 12H20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M11 17H20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6 17V7M6 17L4 14.5M6 17L8 14.5M6 7L4 9M6 7L8 9" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg></template>
+      <script> export default { name: 'LineSpace'};</script>
+    

@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" viewBox="0 0 512 512" fill="currentColor"><rect x="48" y="96" width="416" height="320" rx="40" ry="40" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></rect><polyline points="112 160 256 272 400 160" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></polyline></svg></template>
+      <script> export default { name: 'MailOutline'};</script>
+    

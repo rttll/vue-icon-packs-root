@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" stroke-width="1.5" viewBox="0 0 24 24" fill="none"><g clip-path="url(#a)"><path d="M9.14286 3.00375L14.8571 3M9.14286 3.00375L2 15.0038M9.14286 3.00375L14.0446 12.5M14.8571 3L5.575 21M14.8571 3L21.5 14M5.575 21L2 15.0038M5.575 21H12.0036M2 15.0038H12.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15 19L18 22L23 17" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></g><defs><clipPath id="a"><rect width="24" height="24" stroke-width="1.5" fill="white"></rect></clipPath></defs></svg></template>
+      <script> export default { name: 'GoogleDriveCheck'};</script>
+    

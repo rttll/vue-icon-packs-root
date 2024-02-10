@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" viewBox="0 0 512 512" fill="currentColor"><rect x="48" y="48" width="176" height="176" rx="20" ry="20" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></rect><rect x="288" y="48" width="176" height="176" rx="20" ry="20" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></rect><rect x="48" y="288" width="176" height="176" rx="20" ry="20" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></rect><rect x="288" y="288" width="176" height="176" rx="20" ry="20" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></rect></svg></template>
+      <script> export default { name: 'GridOutline'};</script>
+    

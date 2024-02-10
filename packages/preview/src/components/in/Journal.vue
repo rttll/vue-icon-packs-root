@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" stroke-width="1.5" viewBox="0 0 24 24" fill="none"><path d="M6 6L18 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6 10H18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 14L18 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 18L18 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2 21.4V2.6C2 2.26863 2.26863 2 2.6 2H21.4C21.7314 2 22 2.26863 22 2.6V21.4C22 21.7314 21.7314 22 21.4 22H2.6C2.26863 22 2 21.7314 2 21.4Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6 18V14H8V18H6Z" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg></template>
+      <script> export default { name: 'Journal'};</script>
+    

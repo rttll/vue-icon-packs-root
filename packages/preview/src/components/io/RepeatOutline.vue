@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" viewBox="0 0 512 512" fill="currentColor"><polyline points="320 120 368 168 320 216" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></polyline><path d="M352,168H144a80.24,80.24,0,0,0-80,80v16" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></path><polyline points="192 392 144 344 192 296" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></polyline><path d="M160,344H368a80.24,80.24,0,0,0,80-80V248" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></path></svg></template>
+      <script> export default { name: 'RepeatOutline'};</script>
+    

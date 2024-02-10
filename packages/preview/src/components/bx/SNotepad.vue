@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M19,4h-3V2h-2v2h-4V2H8v2H5C3.897,4,3,4.897,3,6v14c0,1.103,0.897,2,2,2h14c1.103,0,2-0.897,2-2V6C21,4.897,20.103,4,19,4z M12,14H7v-2h5V14z M17,10H7V8h10V10z"></path></svg></template>
+      <script> export default { name: 'SNotepad'};</script>
+    

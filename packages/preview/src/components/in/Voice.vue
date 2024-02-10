@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" stroke-width="1.5" viewBox="0 0 24 24" fill="none"><path d="M12 4L12 20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M8 9L8 15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 10L20 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4 10L4 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16 7L16 17" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg></template>
+      <script> export default { name: 'Voice'};</script>
+    

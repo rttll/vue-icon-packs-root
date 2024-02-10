@@ -1,0 +1,4 @@
+
+      <template><svg width="1em" height="1em" viewBox="0 0 512 512" fill="currentColor"><rect x="64" y="320" width="48" height="160" rx="8" ry="8" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></rect><rect x="288" y="224" width="48" height="256" rx="8" ry="8" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></rect><rect x="400" y="112" width="48" height="368" rx="8" ry="8" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></rect><rect x="176" y="32" width="48" height="448" rx="8" ry="8" style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 32px;"></rect></svg></template>
+      <script> export default { name: 'StatsChartOutline'};</script>
+    

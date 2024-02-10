@@ -2,7 +2,7 @@
 sources
 
 # output dirs
-temp
+tmp
 svg
 lib
 search.db.json

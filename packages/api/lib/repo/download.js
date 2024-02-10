@@ -11,11 +11,10 @@ const getRepoName = (repo) => {
 };
 
 async function download(repo) {
-  const base = repo.includes('github.com') ? '' : 'https://github.com';
   const repoName = getRepoName(repo);
   const destDir = path.join(__dirname, '../../tmp/libraries');
   const destPath = path.join(destDir, `${repoName}.zip`);
-  const url = `${base}/${repo}/archive/main.zip`;
+  const url = `${repo}/archive/main.zip`.replace(/\/\//g, '/');
 
   make(destDir);
 

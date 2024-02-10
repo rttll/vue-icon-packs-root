@@ -55,6 +55,7 @@ const generate = async (repo, dest = 'tmp') => {
   return createComponents(svgs, dest);
 };
 
-const repo = 'primer/octicons';
+// const repo = 'primer/octicons';
+const repo = 'https://github.com/iconoir-icons/iconoir';
 const done = await generate(repo, 'tmp');
 console.log(done);

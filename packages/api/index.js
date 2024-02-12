@@ -1,51 +1,17 @@
-import path from 'path';
-import { download, getRepoName } from './lib/repo/download.js';
-import { unzip } from './lib/repo/unzip.js';
-import { find } from './lib/svg/find.js';
+import { getName, getIcons } from './lib/repo/index.js';
 import { optimize } from './lib/svg/optimize.js';
 import { rename } from './lib/component/name.js';
 import { bundle } from './lib/bundle/index.js';
-import { toTemplate, toFile, makeIndex } from './lib/component/index.js';
+import { make as makeBarrel } from './lib/component/barrel.js';
+import { createAll } from './lib/component/index.js';
 import { Progress } from './lib/util/progress.js';
 
-let repoName;
-const progress = Progress(5);
-
-const getFiles = async (repo) => {
-  const _download = async (repo) => {
-    const downloaded = await download(repo);
-    const dest = downloaded.split('.zip')[0];
-    unzip(downloaded, dest);
-    return dest;
-  };
-
-  const _findSVG = async (dir) => {
-    const unzippedDirName = `${repoName}-main`;
-    const unzippedFullPath = path.join(dir, unzippedDirName);
-    return await find(unzippedFullPath);
-  };
-
-  const dir = await _download(repo);
-  return await _findSVG(dir);
-};
-
-const createComponents = (svgs, dest) => {
-  const _dest = dest + '/' + repoName;
-  return Promise.all(
-    svgs.map(async (svg) => {
-      const component = toTemplate(svg.name, svg.html);
-      const out = _dest + '/components/' + svg.name + '.vue';
-      await toFile(out, component);
-      return out;
-    })
-  );
-};
-
 const generate = async (repo, dest = 'tmp') => {
-  repoName = getRepoName(repo);
+  const progress = Progress(5);
+  const repoName = getName(repo);
 
   progress.update('Downloading repo');
-  const svgFiles = await getFiles(repo);
+  const svgFiles = await getIcons(repo);
 
   progress.update('Optimizing SVGs');
   const names = svgFiles.map((path) =>
@@ -57,13 +23,13 @@ const generate = async (repo, dest = 'tmp') => {
   }));
 
   progress.update('Creating components');
-  const components = await createComponents(svgs, dest);
+  const components = await createAll(svgs, dest + '/' + repoName);
 
   progress.update('Creating index');
-  makeIndex({ components });
+  makeBarrel({ components });
 
   progress.update('Bundling');
-  bundle({
+  await bundle({
     entry: dest + '/' + repoName + '/index.js',
     dest: dest + '/' + repoName,
     name: repoName,
@@ -71,5 +37,4 @@ const generate = async (repo, dest = 'tmp') => {
   });
 };
 
-const repo = 'https://github.com/iconoir-icons/iconoir';
-await generate(repo, 'tmp');
+export { generate };

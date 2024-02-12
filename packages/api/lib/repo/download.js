@@ -3,15 +3,12 @@ import path from 'path';
 import axios from 'axios';
 import { fileURLToPath } from 'url';
 import { make } from '../util/dir.js';
+import { getName } from './index.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const getRepoName = (repo) => {
-  return repo.split('/').pop();
-};
-
 async function download(repo) {
-  const repoName = getRepoName(repo);
+  const repoName = getName(repo);
   const destDir = path.join(__dirname, '../../tmp/libraries');
   const destPath = path.join(destDir, `${repoName}.zip`);
   const url = `${repo}/archive/main.zip`.replace(/\/\//g, '/');
@@ -39,4 +36,4 @@ async function download(repo) {
   });
 }
 
-export { download, getRepoName };
+export { download };

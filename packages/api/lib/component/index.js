@@ -26,33 +26,19 @@ const toFile = async (filePath, content) => {
   }
 };
 
-const makeIndex = ({ components }) => {
-  const content = components.reduce(
-    (acc, path) => {
-      const fileName = path.split('/').pop(),
-        iconName = fileName.replace('.vue', ''),
-        importPath = `./components/${fileName}`;
-
-      acc.imports.push(`import ${iconName} from '${importPath}' `);
-      acc.names.push(iconName);
-      return acc;
-    },
-    {
-      imports: [],
-      names: [],
-    }
-  );
-
-  let base = `
-    ${content.imports.join(';')}
-    export { ${content.names.join(', ')} }
-  `;
-  const dest = components[0].split('/').slice(0, -2).join('/');
-
-  fs.writeFile(`${dest}/index.js`, base, (err) => {
-    if (err) throw err;
-    console.log('The file has been saved!');
-  });
+const create = async (svg, dest) => {
+  const component = toTemplate(svg.name, svg.html);
+  const out = dest + '/components/' + svg.name + '.vue';
+  await toFile(out, component);
+  return out;
 };
 
-export { toFile, toTemplate, makeIndex };
+const createAll = (svgs, dest) => {
+  return Promise.all(
+    svgs.map(async (svg) => {
+      return await create(svg, dest);
+    })
+  );
+};
+
+export { createAll };

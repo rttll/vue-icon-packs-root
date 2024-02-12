@@ -4,7 +4,9 @@ import { unzip } from './lib/repo/unzip.js';
 import { find } from './lib/svg/find.js';
 import { optimize } from './lib/svg/optimize.js';
 import { rename } from './lib/component/name.js';
-import { to_template, write_to_file } from './lib/component/index.js';
+import { bundle } from './lib/bundle/index.js';
+import { toTemplate, toFile, makeIndex } from './lib/component/index.js';
+import { files, make } from './lib/util/dir.js';
 
 let repoName;
 
@@ -28,12 +30,14 @@ const getFiles = async (repo) => {
 
 const createComponents = (svgs, dest) => {
   const _dest = dest + '/' + repoName;
-  for (const svg of svgs) {
-    const component = to_template(svg.name, svg.html);
-    const out = _dest + '/' + svg.name + '.vue';
-    write_to_file(out, component);
-  }
-  return _dest;
+  return Promise.all(
+    svgs.map(async (svg) => {
+      const component = toTemplate(svg.name, svg.html);
+      const out = _dest + '/components/' + svg.name + '.vue';
+      await toFile(out, component);
+      return out;
+    })
+  );
 };
 
 const generate = async (repo, dest = 'tmp') => {
@@ -52,10 +56,20 @@ const generate = async (repo, dest = 'tmp') => {
   }));
 
   console.log('Creating components');
-  return createComponents(svgs, dest);
+  const components = await createComponents(svgs, dest);
+
+  console.log('Creating index');
+  makeIndex({ components });
+
+  console.log('Bundling');
+  bundle({
+    entry: dest + '/' + repoName + '/index.js',
+    dest: dest + '/' + repoName,
+    name: repoName,
+    fileName: 'index',
+  });
 };
 
 // const repo = 'primer/octicons';
 const repo = 'https://github.com/iconoir-icons/iconoir';
-const done = await generate(repo, 'tmp');
-console.log(done);
+await generate(repo, 'tmp');

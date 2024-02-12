@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 
-function to_template(name, svg) {
+function toTemplate(name, svg) {
   const str = `
       <template>${svg}</template>
       <script> export default { name: '${name}'};</script>
@@ -9,7 +9,7 @@ function to_template(name, svg) {
   return str;
 }
 
-const write_to_file = async (filePath, content) => {
+const toFile = async (filePath, content) => {
   const dir = path.dirname(filePath);
   try {
     await fs.mkdir(dir, { recursive: true });
@@ -26,4 +26,33 @@ const write_to_file = async (filePath, content) => {
   }
 };
 
-export { write_to_file, to_template };
+const makeIndex = ({ components }) => {
+  const content = components.reduce(
+    (acc, path) => {
+      const fileName = path.split('/').pop(),
+        iconName = fileName.replace('.vue', ''),
+        importPath = `./components/${fileName}`;
+
+      acc.imports.push(`import ${iconName} from '${importPath}' `);
+      acc.names.push(iconName);
+      return acc;
+    },
+    {
+      imports: [],
+      names: [],
+    }
+  );
+
+  let base = `
+    ${content.imports.join(';')}
+    export { ${content.names.join(', ')} }
+  `;
+  const dest = components[0].split('/').slice(0, -2).join('/');
+
+  fs.writeFile(`${dest}/index.js`, base, (err) => {
+    if (err) throw err;
+    console.log('The file has been saved!');
+  });
+};
+
+export { toFile, toTemplate, makeIndex };

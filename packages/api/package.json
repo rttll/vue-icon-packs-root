@@ -7,9 +7,8 @@
   "dependencies": {
     "adm-zip": "^0.5.10",
     "axios": "^1.6.7",
+    "cheerio": "^1.0.0-rc.12",
     "fast-glob": "^3.3.2",
-    "fs-jetpack": "^5.1.0",
-    "jsdom": "^24.0.0",
     "progress": "^2.0.3",
     "svgo": "^2.8.0",
     "to-words": "^4.0.0"

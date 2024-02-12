@@ -4,10 +4,20 @@
   "main": "index.js",
   "license": "MIT",
   "type": "module",
+  "scripts": {
+    "build": "rollup -c"
+  },
   "bin": {
-    "vip": "./index.js"
+    "vip": "./dist/cli.js"
   },
   "dependencies": {
     "meow": "^13.2.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "rollup": "^4.10.0",
+    "rollup-plugin-visualizer": "^5.12.0"
   }
 }

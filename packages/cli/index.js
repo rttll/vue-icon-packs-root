@@ -16,9 +16,12 @@ const cli = meow(
   {
     importMeta: import.meta,
     flags: {
+      branch: {
+        type: 'string',
+        shortFlag: 'b',
+      },
       bundle: {
         type: 'boolean',
-        shortFlag: 'b',
       },
     },
   }

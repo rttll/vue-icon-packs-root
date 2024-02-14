@@ -3,7 +3,7 @@ import path from 'path';
 
 const generate = async (input, flags = {}) => {
   const dest = path.resolve(process.cwd());
-  await genLib(input, dest, flags.bundle);
+  await genLib(input, { dest, ...flags });
 
   console.log('Components saved to ', dest);
 };

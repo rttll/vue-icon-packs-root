@@ -6,12 +6,14 @@ import { make as makeBarrel } from './lib/component/barrel.js';
 import { createAll } from './lib/component/index.js';
 import { Progress } from './lib/util/progress.js';
 
-const generate = async (repo, dest = 'tmp') => {
+const generate = async (repo, options = { branch: 'main', dest: 'tmp' }) => {
+  const { branch, dest } = options;
+
   const progress = Progress(5);
   const repoName = getName(repo);
 
   progress.update('Downloading repo');
-  const svgFiles = await getIcons(repo);
+  const svgFiles = await getIcons(repo, branch);
 
   progress.update('Optimizing SVGs');
   const names = svgFiles.map((path) =>

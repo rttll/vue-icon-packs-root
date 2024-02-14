@@ -8,7 +8,7 @@
     "build": "rollup -c"
   },
   "bin": {
-    "vip": "./dist/cli.js"
+    "vip": "./index.js"
   },
   "dependencies": {
     "meow": "^13.2.0"

@@ -1,11 +1,11 @@
-import { generate as genLib } from '../../api/index.js';
+import { generate } from 'vue-icon-packs-api';
 import path from 'path';
 
-const generate = async (input, flags = {}) => {
+const run = async (input, flags = {}) => {
   const dest = path.resolve(process.cwd());
-  await genLib(input, { dest, ...flags });
+  await generate(input, { dest, ...flags });
 
   console.log('Components saved to ', dest);
 };
 
-export default generate;
+export default run;

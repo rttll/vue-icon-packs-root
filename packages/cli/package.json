@@ -1,0 +1,17 @@
+{
+  "name": "vue-icon-packs-cli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "bin": {
+    "vip": "./index.js"
+  },
+  "dependencies": {
+    "meow": "^13.2.0"
+  },
+  "devDependencies": {}
+}

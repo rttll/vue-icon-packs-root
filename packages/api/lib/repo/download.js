@@ -7,11 +7,14 @@ import { getName } from './index.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-async function download(repo) {
+async function download(repo, branch = 'main') {
   const repoName = getName(repo);
   const destDir = path.join(__dirname, '../../tmp/libraries');
   const destPath = path.join(destDir, `${repoName}.zip`);
-  const url = `${repo}/archive/main.zip`.replace(/\/\//g, '/');
+  const sanitizedRepo = repo.replace(/\/+$/, '');
+  const url = `${sanitizedRepo}/archive/refs/heads/${branch}.zip`;
+
+  console.log('Downloading', url);
 
   make(destDir);
 

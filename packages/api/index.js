@@ -6,8 +6,11 @@ import { make as makeBarrel } from './lib/component/barrel.js';
 import { createAll } from './lib/component/index.js';
 import { Progress } from './lib/util/progress.js';
 
-const generate = async (repo, options = { branch: 'main', dest: 'tmp' }) => {
-  const { branch, dest } = options;
+const generate = async (
+  repo,
+  options = { branch: 'main', dir: '', dest: 'tmp' }
+) => {
+  const { branch, dest, dir } = options;
 
   const progress = Progress(5);
   const repoName = getName(repo);
@@ -18,7 +21,7 @@ const generate = async (repo, options = { branch: 'main', dest: 'tmp' }) => {
     {
       name: 'Downloading repo',
       action: async () => {
-        const svgFiles = await getIcons(repo, branch);
+        const svgFiles = await getIcons(repo, branch, dir);
         return { svgFiles };
       },
     },
@@ -73,7 +76,9 @@ const generate = async (repo, options = { branch: 'main', dest: 'tmp' }) => {
         data[key] = resp[key];
       }
     } catch (error) {
-      console.error('Error, could not create components (' + step.name + ')');
+      console.error(
+        '\n\nError, could not create components (' + step.name + ')'
+      );
       console.error(
         `Error code: ${error.code || 'N/A'}, Message: ${error.message}`
       );

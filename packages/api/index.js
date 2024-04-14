@@ -8,86 +8,77 @@ import { Progress } from './lib/util/progress.js';
 
 const generate = async (
   repo,
-  options = { branch: 'main', dir: '', dest: 'tmp' }
+  options = { branch: 'main', dir: '', dest: 'tmp', strip: false, debug: false }
 ) => {
-  const { branch, dest, dir } = options;
+  const { branch, dest, dir, strip, debug } = options;
 
   const progress = Progress(5);
   const repoName = getName(repo);
-  const data = {};
-  let ok = true;
+  let svgFiles, svgs, components;
 
-  const steps = [
-    {
-      name: 'Downloading repo',
-      action: async () => {
-        const svgFiles = await getIcons(repo, branch, dir);
-        return { svgFiles };
-      },
-    },
-    {
-      name: 'Optimizing SVGs',
-      action: async () => {
-        const names = data.svgFiles.map((path) =>
-          path.split('/').slice(-1)[0].replace('.svg', '')
-        );
-        const svgs = data.svgFiles.map((path) => ({
-          html: optimize(path),
-          name: rename(path, names),
-        }));
+  console.log('=> ' + repoName);
 
-        return { svgs };
-      },
-    },
-    {
-      name: 'Creating components',
-      action: async () => {
-        const components = await createAll(data.svgs, dest + '/' + repoName);
-        return { components };
-      },
-    },
-    {
-      name: 'Creating index',
-      action: async () => {
-        makeBarrel({ components: data.components });
-        return {};
-      },
-    },
-    {
-      name: 'Bundling',
-      action: async () => {
-        await bundle({
-          entry: dest + '/' + repoName + '/index.js',
-          dest: dest + '/' + repoName,
-          name: repoName,
-          fileName: 'index',
-        });
-      },
-    },
-  ];
-
-  console.log('Generating components for ' + repoName + '...');
-
-  for (let step of steps) {
-    progress.update(step.name);
-    try {
-      const resp = await step.action();
-      for (const key in resp) {
-        data[key] = resp[key];
-      }
-    } catch (error) {
-      console.error(
-        '\n\nError, could not create components (' + step.name + ')'
-      );
-      console.error(
-        `Error code: ${error.code || 'N/A'}, Message: ${error.message}`
-      );
-      ok = false;
-      break;
-    }
+  progress.update('Downloading repo');
+  try {
+    svgFiles = await getIcons(repo, branch, dir);
+  } catch (error) {
+    let notFound = error.response && error.response.status === 404;
+    console.log(error);
+    return null;
   }
 
-  return ok;
+  progress.update('Optimizing SVGs');
+  try {
+    const names = svgFiles.map((path) => {
+      return path.split('/').slice(-1)[0].replace('.svg', '');
+    });
+    svgs = svgFiles.map((path) => ({
+      html: optimize(path),
+      name: rename(path, names, strip),
+    }));
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+
+  try {
+    progress.update('Creating components');
+    components = await createAll(svgs, dest + '/' + repoName);
+    if (components.length === 0) {
+      console.log('no components made');
+      return null;
+    }
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+
+  try {
+    progress.update('Creating index');
+    makeBarrel({ components });
+  } catch (error) {
+    console.log('no barrel');
+    if (debug) console.error(error);
+    else {
+      console.error('Could not create barrel file: ' + error.message);
+    }
+    return null;
+  }
+
+  progress.update('Bundling');
+  try {
+    await bundle({
+      entry: dest + '/' + repoName + '/index.js',
+      dest: dest + '/' + repoName,
+      name: repoName,
+      fileName: 'index',
+    });
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+
+  return dest + '/' + repoName;
 };
 
 export { generate };

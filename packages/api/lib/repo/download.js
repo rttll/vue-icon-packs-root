@@ -14,8 +14,6 @@ async function download(repo, branch = 'main') {
   const sanitizedRepo = repo.replace(/\/+$/, '');
   const url = `${sanitizedRepo}/archive/refs/heads/${branch}.zip`;
 
-  // console.log('Downloading', url);
-
   make(destDir);
 
   const response = await axios({

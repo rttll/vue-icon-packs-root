@@ -1,4 +1,5 @@
-import jetpack from 'fs-jetpack';
+import fs from 'fs';
+import path from 'path';
 import manifest from '../manifest.js';
 
 /**
@@ -6,10 +7,21 @@ import manifest from '../manifest.js';
  */
 
 (function () {
+  const deleteFolderRecursive = function (directoryPath) {
+    if (fs.existsSync(directoryPath)) {
+      fs.readdirSync(directoryPath).forEach((file) => {
+        const curPath = path.join(directoryPath, file);
+        if (fs.lstatSync(curPath).isDirectory()) {
+          deleteFolderRecursive(curPath);
+        } else {
+          fs.unlinkSync(curPath);
+        }
+      });
+      fs.rmdirSync(directoryPath);
+    }
+  };
   for (let lib of manifest) {
-    jetpack.remove(`./${lib.id}`);
+    deleteFolderRecursive(`./${lib.id}`);
   }
-  jetpack.remove(`./tmp`);
-  jetpack.remove(`./dist`);
-  jetpack.remove(`./svg`);
+  deleteFolderRecursive(`./dist`);
 })();

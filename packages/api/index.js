@@ -6,37 +6,79 @@ import { make as makeBarrel } from './lib/component/barrel.js';
 import { createAll } from './lib/component/index.js';
 import { Progress } from './lib/util/progress.js';
 
-const generate = async (repo, options = { branch: 'main', dest: 'tmp' }) => {
-  const { branch, dest } = options;
+const generate = async (
+  repo,
+  options = { branch: 'main', dir: '', dest: 'tmp', strip: false, debug: false }
+) => {
+  const { branch, dest, dir, strip, debug } = options;
 
   const progress = Progress(5);
   const repoName = getName(repo);
+  let svgFiles, svgs, components;
+
+  console.log('=> ' + repoName);
 
   progress.update('Downloading repo');
-  const svgFiles = await getIcons(repo, branch);
+  try {
+    svgFiles = await getIcons(repo, branch, dir);
+  } catch (error) {
+    let notFound = error.response && error.response.status === 404;
+    console.log(error);
+    return null;
+  }
 
   progress.update('Optimizing SVGs');
-  const names = svgFiles.map((path) =>
-    path.split('/').slice(-1)[0].replace('.svg', '')
-  );
-  const svgs = svgFiles.map((path) => ({
-    html: optimize(path),
-    name: rename(path, names),
-  }));
+  try {
+    const names = svgFiles.map((path) => {
+      return path.split('/').slice(-1)[0].replace('.svg', '');
+    });
+    svgs = svgFiles.map((path) => ({
+      html: optimize(path),
+      name: rename(path, names, strip),
+    }));
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 
-  progress.update('Creating components');
-  const components = await createAll(svgs, dest + '/' + repoName);
+  try {
+    progress.update('Creating components');
+    components = await createAll(svgs, dest + '/' + repoName);
+    if (components.length === 0) {
+      console.log('no components made');
+      return null;
+    }
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 
-  progress.update('Creating index');
-  makeBarrel({ components });
+  try {
+    progress.update('Creating index');
+    makeBarrel({ components });
+  } catch (error) {
+    console.log('no barrel');
+    if (debug) console.error(error);
+    else {
+      console.error('Could not create barrel file: ' + error.message);
+    }
+    return null;
+  }
 
   progress.update('Bundling');
-  await bundle({
-    entry: dest + '/' + repoName + '/index.js',
-    dest: dest + '/' + repoName,
-    name: repoName,
-    fileName: 'index',
-  });
+  try {
+    await bundle({
+      entry: dest + '/' + repoName + '/index.js',
+      dest: dest + '/' + repoName,
+      name: repoName,
+      fileName: 'index',
+    });
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+
+  return dest + '/' + repoName;
 };
 
 export { generate };

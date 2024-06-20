@@ -1,40 +1,32 @@
-import jetpack from 'fs-jetpack';
+import path from 'path';
+import { generate } from 'vue-icon-packs-api';
+
+import { makeDist, move } from './actions/dist.js';
 import manifest from './manifest.js';
-import bundle from './actions/bundle/index.js';
-import { rename } from './actions/component/name.js';
-import { process } from './actions/component/svg.js';
-import { save } from './actions/component/index.js';
 
-(async function () {
-  console.log('Generating components...');
+const afterBundle = (lib, bundle) => {
+  makeDist(lib);
+  move(lib, bundle);
+};
 
-  for (let library of manifest) {
-    let sources = jetpack
-      .cwd('../../')
-      .find(`node_modules/${library.path}`, {
-        matching: '*.svg',
-        recursive: true,
-      })
-      .map((path) => `../../${path}`);
-
-    if (library.excludeFile) {
-      sources = sources.filter((str) => {
-        let filename = str;
-        filename = filename.split('/').pop();
-        return !library.excludeFile.test(filename);
-      });
-    }
-
-    const names = sources.map((path) =>
-      path.split('/').slice(-1)[0].replace('.svg', '')
-    );
-    const svgs = sources.map((path) => ({
-      html: process(path),
-      name: rename(path, names, library.stripFilename),
-    }));
-
-    save(library, svgs);
+const dest = path.resolve(process.cwd(), 'tmp/components');
+const handler = async (lib) => {
+  try {
+    return await generate(lib.repo, {
+      dest,
+      branch: lib.branch || 'main',
+      dir: lib.dir || '',
+      strip: lib.strip || null,
+      exclude: lib.exclude || null,
+    });
+  } catch (error) {
+    console.log(error);
+    return null;
   }
+};
 
-  await bundle();
-})();
+for (let lib of manifest) {
+  const bundle = await handler(lib);
+  if (bundle === null) break;
+  afterBundle(lib, bundle);
+}

@@ -33,12 +33,23 @@ const create = async (svg, dest) => {
   return out;
 };
 
-const createAll = (svgs, dest) => {
-  return Promise.all(
-    svgs.map(async (svg) => {
-      return await create(svg, dest);
-    })
-  );
+const createAll = async (svgs, dest) => {
+  try {
+    const resp = await Promise.all(
+      svgs.map(async (svg) => {
+        try {
+          return await create(svg, dest);
+        } catch (error) {
+          console.log(error);
+          return null;
+        }
+      })
+    );
+    return resp;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
 };
 
 export { createAll };

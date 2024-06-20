@@ -1,7 +1,7 @@
 import { resolve } from 'path';
-import vue from '@vitejs/plugin-vue';
-import { build } from 'vite';
 import { cwd } from 'process';
+import { build } from 'vite';
+import vue from '@vitejs/plugin-vue';
 
 /**
  * Bundles all the .vue files into esm format.
@@ -9,9 +9,9 @@ import { cwd } from 'process';
 
 const __dir = cwd();
 
-const bundle = async (args) => {
+const bundle = (args) => {
   const { entry, dest, name, fileName } = args;
-  await build({
+  return build({
     root: resolve(__dir, dest), // Exports empty objects unless root is set
     plugins: [vue()],
     build: {

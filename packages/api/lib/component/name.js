@@ -49,7 +49,7 @@ const intToWords = (str) => {
   });
 };
 
-function rename(path, names) {
+function rename(path, names, strip) {
   let [dir, name] = path
     .split('/')
     .slice(-2)
@@ -63,11 +63,13 @@ function rename(path, names) {
     name += '-' + dir;
   }
 
-  // Apply any regex from settings.
+  // Strip out chars from the name
   // This has to go before toWords and pascal
-  // if (stripFilename) {
-  //   name = name.replace(stripFilename, '');
-  // }
+  if (strip) {
+    const [pattern, flags] = strip.split(',');
+    const regex = new RegExp(pattern, flags || '');
+    name = name.replace(regex, '');
+  }
 
   name = intToWords(name);
   name = toPascalCase(name).replace(/-/g, '').replace(/\s/g, '');

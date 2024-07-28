@@ -32,7 +32,8 @@
     "review": "node ./src/actions/svgReview.js",
     "pretty": "prettier --write dist/**/*.js",
     "clean": "node src/util/clean.js",
-    "prepublishOnly": "node ./src/index.js"
+    "prepublishOnly": "node ./src/index.js",
+    "test": "vitest"
   },
   "devDependencies": {
     "@tabler/icons": "2.47.0",
@@ -40,7 +41,7 @@
     "boxicons": "2.1.4",
     "fs-jetpack": "^4.1.0",
     "heroicons": "2.1.1",
-    "iconoir": "https://github.com/rttll/iconoir.git#1.0.0",
+    "iconoir": "https://github.com/rttll/iconoir.git",
     "ionicons": "7.2.2",
     "jsdom": "^16.6.0",
     "octicons": "https://github.com/rttll/octicons.git#14.2.2",
@@ -49,6 +50,7 @@
     "svgson": "^5.2.1",
     "to-words": "^2.3.2",
     "vite": "^3.0.4",
+    "vitest": "^1.5.3",
     "vue": "^3.2.37"
   }
 }

@@ -40,7 +40,7 @@
     "@vitejs/plugin-vue": "^3.0.1",
     "boxicons": "2.1.4",
     "fs-jetpack": "^4.1.0",
-    "heroicons": "2.1.1",
+    "heroicons": "1.0.4",
     "iconoir": "https://github.com/rttll/iconoir.git",
     "ionicons": "7.2.2",
     "jsdom": "^16.6.0",

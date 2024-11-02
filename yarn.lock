@@ -2144,7 +2144,7 @@
   resolved "https://registry.npmjs.org/@tailwindcss/aspect-ratio/-/aspect-ratio-0.2.1.tgz"
   integrity sha512-aDFi80aHQ3JM3symJ5iKU70lm151ugIGFCI0yRZGpyjgQSDS+Fbe93QwypC1tCEllQE8p0S7TUu20ih1b9IKLA==
 
-"@tailwindcss/postcss7-compat@^2.0.4", "tailwindcss@npm:@tailwindcss/postcss7-compat":
+"@tailwindcss/postcss7-compat@^2.0.4":
   version "2.2.2"
   resolved "https://registry.npmjs.org/@tailwindcss/postcss7-compat/-/postcss7-compat-2.2.2.tgz"
   integrity sha512-vuzYiJNyI51uqyWqiBlnfwGcq9rCCdU1IhCMEi6yvNgDT1Y0EVnyjXXXQwfY2ys2MVJQxfn1PoUK1cCdmTB7Rg==
@@ -8373,10 +8373,10 @@ he@1.2.x, he@^1.1.0:
   resolved "https://registry.npmjs.org/he/-/he-1.2.0.tgz"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
-heroicons@2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/heroicons/-/heroicons-2.1.1.tgz#b574c2d87bc504bf7f4fefacc20960c5672b0202"
-  integrity sha512-54kHbrxsTyAJJU7z07XN1OrVBX8ogN/tbclP8Doxk0X4IQmR6LEhLzJBkFK9Yc814NoXG6ZJBh9Bi/qvauzjfA==
+heroicons@1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/heroicons/-/heroicons-1.0.4.tgz#58a9c5fafae7185fca79f8b47251484903e4dc0a"
+  integrity sha512-dn1OvwZruCNEmNDr+TRvG5MejL9kW4VtVQO2Y1yfp7rz0+yWqpkjwwFRTQ8VHBF26oNMMUofQYA+Jl363Y7JdA==
 
 hex-color-regex@^1.1.0:
   version "1.1.0"
@@ -14659,6 +14659,46 @@ table@^6.0.4, table@^6.0.9:
     slice-ansi "^4.0.0"
     string-width "^4.2.0"
     strip-ansi "^6.0.0"
+
+"tailwindcss@npm:@tailwindcss/postcss7-compat":
+  version "2.2.2"
+  resolved "https://registry.npmjs.org/@tailwindcss/postcss7-compat/-/postcss7-compat-2.2.2.tgz"
+  integrity sha512-vuzYiJNyI51uqyWqiBlnfwGcq9rCCdU1IhCMEi6yvNgDT1Y0EVnyjXXXQwfY2ys2MVJQxfn1PoUK1cCdmTB7Rg==
+  dependencies:
+    "@fullhuman/postcss-purgecss" "^3.1.3"
+    arg "^5.0.0"
+    autoprefixer "^9"
+    bytes "^3.0.0"
+    chalk "^4.1.1"
+    chokidar "^3.5.1"
+    color "^3.1.3"
+    cosmiconfig "^7.0.0"
+    detective "^5.2.0"
+    didyoumean "^1.2.1"
+    dlv "^1.1.3"
+    fast-glob "^3.2.5"
+    fs-extra "^10.0.0"
+    glob-parent "^6.0.0"
+    html-tags "^3.1.0"
+    is-glob "^4.0.1"
+    lodash "^4.17.21"
+    lodash.topath "^4.5.2"
+    modern-normalize "^1.1.0"
+    node-emoji "^1.8.1"
+    normalize-path "^3.0.0"
+    object-hash "^2.2.0"
+    postcss "^7"
+    postcss-functions "^3"
+    postcss-js "^2"
+    postcss-load-config "^3.0.1"
+    postcss-nested "^4"
+    postcss-selector-parser "^6.0.6"
+    postcss-value-parser "^4.1.0"
+    pretty-hrtime "^1.0.3"
+    quick-lru "^5.1.1"
+    reduce-css-calc "^2.1.8"
+    resolve "^1.20.0"
+    tmp "^0.2.1"
 
 tapable@2.0.0-beta.5:
   version "2.0.0-beta.5"

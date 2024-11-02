@@ -4,7 +4,7 @@ const manifest = [
     name: 'Hero Icons',
     site: 'https://heroicons.com/',
     license: 'https://github.com/tailwindlabs/heroicons/blob/master/LICENSE',
-    path: 'heroicons/optimized',
+    path: 'heroicons',
   },
   {
     id: 'ri',
@@ -28,7 +28,7 @@ const manifest = [
     name: 'Ionic Icons',
     site: 'https://ionic.io/ionicons',
     license: 'https://github.com/ionic-team/ionicons/blob/master/LICENSE',
-    path: 'ionicons/src/svg',
+    path: 'ionicons/dist/svg',
   },
   {
     id: 'bx',

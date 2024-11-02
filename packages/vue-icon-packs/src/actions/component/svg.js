@@ -75,4 +75,10 @@ const process = (path) => {
   return svg.outerHTML;
 };
 
-export { process };
+const save = (library, svgs) => {
+  for (const svg of svgs) {
+    jetpack.write(`tmp/svg/${library.id}/${svg.name}.svg`, svg.html);
+  }
+};
+
+export { process, save };

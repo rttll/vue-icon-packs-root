@@ -1,4 +1,5 @@
 import jetpack from 'fs-jetpack';
+import { generate } from '../../util/hash.js';
 
 function template(name, svg) {
   const str = `
@@ -8,10 +9,8 @@ function template(name, svg) {
   return str;
 }
 
-const save = (library, svgs) => {
+const save = (library, svgs, version) => {
   console.log(library.name);
-
-  jetpack.remove(`tmp/components/${library.id}`);
 
   for (let svg of svgs) {
     const component = template(svg.name, svg.html);

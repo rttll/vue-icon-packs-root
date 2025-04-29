@@ -12,6 +12,5 @@
   },
   "dependencies": {
     "meow": "^13.2.0"
-  },
-  "devDependencies": {}
+  }
 }

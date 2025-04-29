@@ -5,6 +5,7 @@
   "main": "dist",
   "type": "module",
   "author": "Adrian Cousens",
+  "packageManager": "yarn@3.8.7",
   "repository": {
     "type": "git",
     "url": "https://github.com/rttll/vue-icon-packs-root.git",
@@ -44,7 +45,7 @@
     "iconoir": "https://github.com/rttll/iconoir.git",
     "ionicons": "7.2.2",
     "jsdom": "^16.6.0",
-    "octicons": "https://github.com/rttll/octicons.git#14.2.2",
+    "octicons": "https://github.com/rttll/octicons.git#e80c32f5cb4fefbdab5fdc9c056235993730b09c",
     "remixicon": "4.1.0",
     "svgo": "^2.3.1",
     "svgson": "^5.2.1",
